@@ -1,0 +1,7 @@
+--- a/configs/contentscanners/clamdscan.conf.in
++++ b/configs/contentscanners/clamdscan.conf.in
+@@ -3,3 +3,3 @@ plugname = 'clamdscan'
+ # edit this to match the location of your ClamD UNIX domain socket
+-#clamdudsfile = '/var/run/clamav/clamd.sock'
++clamdudsfile = '/var/run/clamav/clamd.sock'
+
