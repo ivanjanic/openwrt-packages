@@ -14,10 +14,12 @@ setup_login() {
 
 	config_get username "$section" username
 	config_get password "$section" password
+	config_get remoteip "$section" remoteip
 	[ -n "$username" ] || return 0
 	[ -n "$password" ] || return 0
+	[ -n "$remoteip" ] || return 0
 
-	echo "$username pptp-server $password *" >> $CHAP_SECRETS
+	echo "$username pptp-server $password $remoteip" >> $CHAP_SECRETS
 }
 
 setup_config() {
@@ -30,9 +32,7 @@ setup_config() {
 	cp /etc/pptpd.conf $CONFIG
 
 	config_get localip "$section" localip
-	config_get remoteip "$section" remoteip
 	[ -n "$localip" ] && echo "localip  $localip" >> $CONFIG
-	[ -n "$remoteip" ] && echo "remoteip  $remoteip" >> $CONFIG
 	return 0
 }
 
@@ -55,4 +55,5 @@ start() {
 
 stop() {
 	service_stop $BIN
+	rm -rf $CHAP_SECRETS $CONFIG /etc/ppp/chap-secrets
 }
