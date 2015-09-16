@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lxc
 PKG_VERSION:=1.1.1
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_LICENSE:=LGPL-2.1+ BSD-2-Clause GPL-2.0
 PKG_MAINTAINER:=Luka Perkov <luka@openwrt.org>

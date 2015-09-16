@@ -1,0 +1,12 @@
+--- a/src/lxc/conf.c
++++ b/src/lxc/conf.c
+@@ -757,3 +757,2 @@ static int lxc_mount_auto_mounts(struct
+ 		{ LXC_AUTO_PROC_MASK, LXC_AUTO_PROC_MIXED, NULL,                                                "%r/proc/sys",                  NULL,       MS_REMOUNT|MS_BIND|MS_RDONLY,   NULL },
+-		{ LXC_AUTO_PROC_MASK, LXC_AUTO_PROC_MIXED, "%r/proc/net",                                       "%r/proc/sys/net",              NULL,       MS_MOVE,                        NULL },
+ 		{ LXC_AUTO_PROC_MASK, LXC_AUTO_PROC_MIXED, "%r/proc/sysrq-trigger",                             "%r/proc/sysrq-trigger",        NULL,       MS_BIND,                        NULL },
+--- a/src/lxc/Makefile.am
++++ b/src/lxc/Makefile.am
+@@ -248,3 +248,2 @@ endif
+ 
+-init_lxc_static_LDFLAGS = -static
+ init_lxc_static_LDADD = @CAP_LIBS@
