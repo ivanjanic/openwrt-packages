@@ -69,6 +69,8 @@ start_proxy() {
 
 	proxy_list "$1" Anonymous '"' >> $CFGFILE
 	proxy_list "$1" ConnectPort >> $CFGFILE
+	
+	proxy_atom "$1" BasicAuth >> $CFGFILE
 
 	config_foreach write_upstream upstream
 
